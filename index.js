@@ -35,6 +35,7 @@ client.once(Events.ClientReady, (c) => {
 
 client.on(Events.InteractionCreate, async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
+
   const command = interaction.client.commands.get(interaction.commandName);
 
   if (!command) {
@@ -48,7 +49,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
     console.error(error);
     await interaction.reply({
       content: "There was an error while executing this command!",
-      ephemeral: true,
+      ephemeral: true
     });
   }
 });
