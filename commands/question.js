@@ -33,7 +33,7 @@ module.exports = {
       "I LOVE MY BRICK!"
     ];
 
-    const ball = Math.floor(Math.random() * choice.length);
+    const randomValue = Math.floor(Math.random() * choice.length);
 
     const embed = new EmbedBuilder()
       .setColor("Blue")
@@ -41,10 +41,14 @@ module.exports = {
       .addFields({ name: "Question", value: `${question}`, inline: true });
 
     const embed2 = new EmbedBuilder()
-      .setColor("Blue")
+      .setColor("Red")
       .setTitle("🥃 Father Jack 🥃")
       .addFields({ name: "Question", value: `${question}`, inline: true })
-      .addFields({ name: "Answer", value: `${choice[ball]}`, inline: true });
+      .addFields({
+        name: "Answer",
+        value: `${choice[randomValue]}`,
+        inline: true
+      });
 
     const button = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
